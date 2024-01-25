@@ -15,10 +15,11 @@ export default class AppConfig {
     if (!fs.existsSync(this.imagePath)) {
       fs.mkdirSync(this.imagePath);
     }
+
+    this.expressApp.disable('x-powered-by');
     this.logRequests();
     await this.setupRoutes();
   }
-
 
   private logRequests(): void {
     this.expressApp.use((req: Request, res: Response, next) => {
