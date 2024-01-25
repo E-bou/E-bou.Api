@@ -22,7 +22,12 @@ export default class AppConfig {
 
   private logRequests(): void {
     this.expressApp.use((req: Request, res: Response, next) => {
-      Logger.log(`${req.method} ${req.path}`);
+      const referer = req.get('Referrer') || '-';
+      const userAgent = req.get('User-Agent') || 'N/A';
+      const statusCode = res.statusCode || 0;
+      const httpVersion = req.httpVersion || 'N/A';
+
+      Logger.log(`"${req.method} ${req.path} HTTP/${httpVersion}" ${statusCode} "${referer}" "${userAgent}"`);
       next();
     });
   }
