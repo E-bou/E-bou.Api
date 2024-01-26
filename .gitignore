@@ -2,3 +2,4 @@ node_modules/
 logs/
 public/
 docker-compose.yml
+package-lock.json
