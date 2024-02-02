@@ -61,9 +61,22 @@ class DateManager {
     return date.year;
   }
 
+  /**
+   * Returns the day of the current date.
+   * @returns {string} The day of the current date.
+   */
   static getDay(): string {
     const date = this.getData();
     return date.day;
+  }
+
+  /**
+   * Returns the current date in the format "day-month-year".
+   * @returns The current date as a string.
+   */
+  static getFullDate(): string {
+    const date = this.getData();
+    return `${date.day}-${date.month}-${date.year}`;
   }
 
   /**

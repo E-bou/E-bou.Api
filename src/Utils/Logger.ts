@@ -5,7 +5,7 @@ const LOGS_PATH = process.env.LOGS_PATH || 'logs';
 
 export default class Logger {
   static getLogMessage(message: string): string {
-    return `[${DateManager.getFullHour()}] ${message}`;
+    return `[${DateManager.getFullHour()} ${DateManager.getFullDate()}] ${message}`;
   }
 
   static appendLog(msg: string, path: string, filename: string) {
