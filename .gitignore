@@ -1,5 +1,7 @@
 node_modules/
 logs/
 public/
+img/
 docker-compose.yml
 package-lock.json
+bun.lockb

@@ -1,5 +1,4 @@
 import express, { Express } from 'express';
-import dotenv from 'dotenv';
 import AppConfig from './AppConfig';
 import Logger from './Utils/Logger';
 
@@ -9,8 +8,6 @@ class App {
   private readonly API_PORT: Number;
 
   constructor() {
-    dotenv.config();
-
     this.API_PORT = Number(process.env.API_PORT) || 3000;
 
     this.expressApp = express();
