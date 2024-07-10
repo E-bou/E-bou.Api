@@ -23,16 +23,13 @@ export default class AppConfig {
 
   private logRequests(): void {
     this.expressApp.use((req: Request, res: Response, next) => {
+      const start = performance.now();
       const referer = req.get('Referrer') || 'N/A';
-      const userAgent = req.get('User-Agent') || 'N/A';
-      const httpVersion = req.httpVersion || 'N/A';
+      next();
 
       res.on('finish', () => {
-        const statusCode = res.statusCode || 0;
-        const statusMessage = res.statusMessage || 'N/A';
-        Logger.log(`"${req.method} ${req.path} HTTP/${httpVersion}" "${statusCode}:${statusMessage}" "${referer}" "${userAgent}"`);
+        Logger.log(`[${req.method} - ${res.statusCode} - ${referer}] ${req.originalUrl} executed in ${(performance.now() - start).toFixed(2)}ms`);
       });
-      next();
     });
   }
 
