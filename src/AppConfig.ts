@@ -24,11 +24,11 @@ export default class AppConfig {
   private logRequests(): void {
     this.expressApp.use((req: Request, res: Response, next) => {
       const start = performance.now();
-      const referer = req.get('Referrer') || 'N/A';
+      const userAgent = req.get('User-Agent') || 'N/A';
       next();
 
       res.on('finish', () => {
-        Logger.log(`[${req.method} - ${res.statusCode} - ${referer}] ${req.originalUrl} executed in ${(performance.now() - start).toFixed(2)}ms`);
+        Logger.log(`[${req.method} - ${res.statusCode} - ${userAgent}] ${req.originalUrl} executed in ${(performance.now() - start).toFixed(2)}ms`);
       });
     });
   }
