@@ -1,11 +1,11 @@
 {
   "name": "e-bou.api",
   "version": "1.0.0",
-  "description": "A simple API for retrieve image from public folders",
+  "description": "A simple API for retrieve image",
   "main": "index.js",
   "scripts": {
     "start": "bun run src/index.ts",
-    "dev": "bun run --watch src/index.ts"
+    "dev": "tsc && node dist/index.js"
   },
   "repository": {
     "type": "git",
@@ -18,10 +18,11 @@
   },
   "homepage": "https://github.com/E-bou/E-bou.Api#readme",
   "dependencies": {
-    "express": "^4.19.2"
+    "emblemrenderer": "git@github.com:E-bou/EmblemRenderer.git",
+    "express": "^4.21.1"
   },
   "devDependencies": {
-    "@types/express": "^4.17.21",
-    "@types/bun": "^1.1.6"
+    "@types/express": "^5.0.0",
+    "@types/bun": "^1.1.14"
   }
 }
