@@ -4,7 +4,8 @@
   "description": "A simple API for retrieve image",
   "main": "index.js",
   "scripts": {
-    "start": "tsc && node dist/index.js"
+    "build": "npx tsc",
+    "start": "node dist/index.js"
   },
   "repository": {
     "type": "git",
